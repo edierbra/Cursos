@@ -38,7 +38,7 @@
 
 `git rm –cached archivo.txt` Elimina el archivo del add de la ram.
 
-##### siempre que se haga un cambio en nuestro repositorio local:
+## siempre que se haga un cambio en nuestro repositorio local:
 
 `git add .` o `git add archivo.txt`
 
@@ -50,3 +50,12 @@
 
 ![](https://github.com/edierbra/Cursos/blob/main/images/GitHub/head.png?raw=true)
 
+## Reset y checkout
+
+`git log` muestra los commit
+
+`git reset codigoCommit --hard` Volver a la version del codigo que indica, todo vuelve a lo anterior
+
+`git reset codigoCommit --soft` Volver a la version del codigo que indica, vuelve a la version anterior pero lo del staging no se modifica
+
+git
