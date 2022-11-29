@@ -100,7 +100,7 @@ El HEAD indica en que version estoy ubicado
 
 ## Resolucion de conflictos al hacer un merge
 
-Los conflictos suceden cuando dos usuarios editan una misma linea de codigo
+Los conflictos suceden cuando dos usuarios editan una misma linea de codigo e intentamos fusionar dos ramas con `git merge nombreRamaQuieroUnir`
 
 Se identifica los conflictos en el codigo que aparecen de la siguiente manera y defino con que version quedarme.
 
@@ -115,6 +115,8 @@ Se identifica los conflictos en el codigo que aparecen de la siguiente manera y 
     ...
 >>>>>>>>>>>>> (incoming change)
 ```
+
+usar: `git log` o `git status` pra ver informacion detallada de los conflictos y asi solucionarlos.
 
 # TRABAJANDO CON REPOSITORIOS REMOTOS EN GIT
 
