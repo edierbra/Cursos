@@ -1,7 +1,7 @@
 # Curso Profesional de Git y GitHub
 **By:** *Edier Dario Bravo Bravo*
 
-# Introduccion:
+# INTRODUCCION A GIT:
 
 ![](https://github.com/edierbra/Cursos/blob/main/images/GitHub/intro1.png?raw=true)
 ![](https://github.com/edierbra/Cursos/blob/main/images/GitHub/intro2.png?raw=true)
@@ -16,7 +16,7 @@
 
 ```git status``` Estado de la base de datos.
 
-```git show``` Muestra los cambios históricos hechos y quien los hizo.
+```git show``` Muestra los cambios históricos hechos, quien los hizo  y las diferencias respecto a la version mas nueva.
 
 ```git log archivoPlano.txt``` Muestra historia completa de un archivo
 
@@ -38,6 +38,8 @@
 
 `git rm –cached archivo.txt` Elimina el archivo del add de la ram.
 
+# COMANDOS BASICOS DE GIT
+
 ## siempre que se haga un cambio en nuestro repositorio local:
 
 `git add .` o `git add archivo.txt`
@@ -54,8 +56,65 @@
 
 `git log` muestra los commit
 
-`git reset codigoCommit --hard` Volver a la version del codigo que indica, todo vuelve a lo anterior
+`git reset codigoCommit --hard` Volver a la version del codigo que indica, todo vuelve a lo anterior y se elimina el historial
 
 `git reset codigoCommit --soft` Volver a la version del codigo que indica, vuelve a la version anterior pero lo del staging no se modifica
 
-git
+`git diff` Muestra diferencia entre lo que tengo en el disco y el commit
+
+`git log --stat` Ver los cambios realizados en cada commit
+
+`git checkout codigoCommit historia.txt` Trae el archivo de esa version del commit
+
+`git checkout nombreRama historia.txt` trae la ultima version de la rama del respectivo archivo
+
+# FLUJO DE TRABAJO BASICO
+
+## Flujo de trabajo básico con un repositorio remoto
+
+`git clone url` clona el master del repositorio Remoto al directorio de trabajo y crea la base de datos con todo el historial de cambios al repositorio local
+
+`git add`, `git commit` y `git push` para mandar cambio al repositorio remoto
+
+`git fetch` solo clona lo de nuestro repositorio remoto al repositorio local. Si se quiere copear a mis archivos se necesita fusionar lo del local y directorio con `git merge`
+
+`git pull` copea todo lo de nuestro repositoria al repositorio local, copea la base de datos y copea en el directorio. (`git fetch` + `git merge`)
+
+## Introducción a las ramas o branches de Git
+
+`git branch nombreRama` crear una nueva rama
+
+`git checkout nombreRama` cambiar a una respectiva rama
+
+El HEAD indica en que version estoy ubicado
+
+`git commit -am "mensage"` = `git add` + `git commit -m "mensage"` solo para casos donde no se crean nuevos archivos
+
+## Fusión de ramas con Git merge
+
+- Importante hacer `git commit` + `git add` en las cabeceras involucradas
+
+- Ubicarse en la rama principal ()
+
+`git merge nombreRamaQuieroUnir` para unir otra rama a la principal
+
+## Resolucion de conflictos al hacer un merge
+
+Los conflictos suceden cuando dos usuarios editan una misma linea de codigo
+
+Se identifica los conflictos en el codigo que aparecen de la siguiente manera y defino con que version quedarme.
+
+```
+>>>>>>>>>>>>>HEAD (Current change)
+    ...
+    codigo
+    ...
+-----------------
+    ...
+    codigo
+    ...
+>>>>>>>>>>>>> (incoming change)
+```
+
+# TRABAJANDO CON REPOSITORIOS REMOTOS EN GIT
+
