@@ -221,3 +221,10 @@ Lo que se cifra con la llave publica se decifra con la privada, las dos estan vi
 `git show-branch --all` mostrar ramas detalladamente remotas y locales
 
 `gitk` muestra historia pero graficamente
+
+##  Configurar múltiples colaboradores en un repositorio de GitHub
+
+`git clone <url Repositorio Remoto>` clono un repositorio remoto. De esta manera una persona se uni como colaborador, pero se debe añadir a la persona en los colaboradores del repositorio remoto.
+
+# Flujo de trabajo profecionales
+
