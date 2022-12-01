@@ -120,3 +120,104 @@ usar: `git log` o `git status` pra ver informacion detallada de los conflictos y
 
 # TRABAJANDO CON REPOSITORIOS REMOTOS EN GIT
 
+## Uso de GitHub
+
+`git remote add origin <url HTTP>` Añadir un repositorio remoto.
+
+`git remote rm origin` elimina repositorio remoto origin (rm = remote).
+
+`git remote set-url origin <url Repositorio Remoto>` Cambiar la url de origin. Aunque siempre va a estar actualizado se recomienda ejecutar `git pull origin nombreRamaRemota`
+
+`git remote` Muestra repositorio remoto.
+
+`git remote -v` mostrar repositorio remoto verbalmente.
+
+`git push origin nombreRamaLocal` Sube al repositorio lo que tenemos localmente en la rama nombreRamaLocal.
+
+O use `git push --set-upstream origin master` si es tu primera vez.
+
+- El anterio codigo aveces coloca problema por que en el repositorio remoto tenemos cosas que localmente no se tienen.
+
+- Se realiza `git pull origin nombreRamaRemoto` para traer todo lo de nuestro repositorio remoto a nuestro repositorio local.
+
+    - Se realiza (Solo si hay problema con el anterior comando)`git pull origin nombreRamaRemoto --allow-unrelated-histories` para forzar a unir reporistorio remoto con el local.
+
+Nuevamente para tener lo mismo remotamente y localmente `git push origin nombreRamaLocal` y se sube al repositorio lo que tenemos localmente en la rama nombreRamaLocal.
+
+al hacer modificaciones directamente en el repositorio remoto, se recomienda hacer `git pull` localmente.
+
+## LLaves publicas y privadas
+
+Lo que se cifra con la llave publica se decifra con la privada, las dos estan vinculadas.
+
+## Configurar llaves SSH en local
+
+`git config -l` ver configuracion de mi git.
+
+**Configuracion de usurio GitHub**
+
+`git config --global user.name "MyUsername"` Agregar usuario GitHub
+
+`git config --global user.email "Tu@correo.com"` Agregar correo gitHub
+
+**Windows** (Importente estar en el Home)
+
+- `ssh-keygen -t rsa -b 4096 -C "tucorreo@domain.com"`, luego te pedira la direccion donde guardar la llave y otras opciones, si le das **ENTER** deja la configuracion por defecto. Este comando crea una carpeta nueva en el directorio del usuario, llamada .ssh, dentro de ella vas a ver la lave publica y la privada.
+    - El -t rsa genera una clave con encriptacion RSA.
+    - El -b es el tamaño, en este caso es de 4096 bit.
+    - El -C le colocas una nota para identificar la llave muy util.
+- ingresas la clave rsa, si das **ENTER** la deja vacia.
+- `eval $(ssh-agent -s)`, preparar tu agente con tu nueva llave. Esto creara al agente y te dara el numero de pid que esta corriendo.
+- `ssh-add ~/.ssh/id_rsa`, Esto creara al agente y te dara el numero de **pid** que esta corriendo
+- Te debe salir algo como esto: `/c/User/momoko/.ssh/id_rsa(tucorreo@domain.com)`
+
+**Linux** (Importente estar en el Home)
+
+- `ssh-keygen -t rsa -b 4096 -C "tucorreo@domain.com"`, luego te pedira la direccion donde guardar la llave y otras opciones, si le das **ENTER** deja la configuracion por defecto. Este comando crea una carpeta nueva en el directorio del usuario, llamada .ssh, dentro de ella vas a ver la lave publica y la privada.
+- `eval $(ssh-agent -s)`, Crear Agente a usar Llave ssh.
+- `ssh-add ~/.ssh/id_rsa`, Agregar Llave ssh al agente para ser usada.
+- Te debe salir algo como esto: `/c/User/momoko/.ssh/id_rsa(tucorreo@domain.com)`
+
+**Ahora vamos con GitHub**
+
+- Para añadir una llave SSH a tu cuenta GitHub, ve a la configuracion (Settings) de tu cuenta y selecciona la opcion "llaves SSH y GPG" en el menu de la izquierda.
+- En la derecha, haz clic en el boton "Nueva clave de SSH" para crear una nueva clave de SSH para Github.
+- El siguiente paso es agregar la contenido dentro de nuestro archivo id_rsa.pub.
+- En linux para ver la clave publica se usa `cat ~/.ssh/id_rsa.pub`
+- El contenido de la llave publica se ve algo asi: `ssh-rsa B3NzaC1yc2EAAAADAQABAAACAQC+HvRnxwPJyUiUO/UCPKrW6mFPgJF8LxsC2lbBePtn+UDv4Xy+eMJRgG5fbaqy2i0tvPWtO9AAIlclkIVeu5LmV7RaE8H78VXxGVQLcWXvlS0SGlwIxXXd9hBeGh6qPmrya63Ezrt/J1fNy6Ro9s5+ndLogBG2G0JKdAoytbCIBgPmm6sK9nvv3kHrjSK4S0rRz0nb9oaxCQF6V+T75hPgYp+JMOl8yZZMGLN3GPadE2ye2/lskJXzYjlHyjAE6a0g+vrHmMjOULPUrO   tucorreo@domain.com`
+- Vas a copiar todo el contenido de la llave y la vas a pegar en github, le das al boton de agregar y listo.
+- Recuerda cuando clones tus repositorio tomar la opcion de copiar la url por SSH y no por HTTP.
+
+## Tags y versiones en Git y GitHub
+
+`git log --all --graph` muestra los log pero con graficos
+
+`git log --all --graph --decorate --oneline` muestra los log pero con graficos y resumido
+
+`alias arbolito="<comando>"` asignar alias a una variable
+
+- ejemplo: `alias arbolito="git log --all --graph --decorate --oneline"`
+
+`git tag -a <nombreTag> -m "<Mensaje>" <idCommit>` agregar tag a una respectiva version. **nombreTag** se recomienda segir la estructura: v0.1, v0.2, v0.3, v0.4, ...
+
+`git tag` ver los tag que tenemos
+
+`git show-ref --tags` ver los tag y en donde se encuentran, es decir su referencia.
+
+`git push origin --tags` enviar tags a internet
+
+`git tag - d nombreTag` eliminar un Tag localmente
+
+`git push origin :refs/tags/nombreTag` eliminar tag remoto, importante realizar el anterior comando.
+
+## Manejo de ramas en GitHub
+
+`git checkout nombreRama` para cambiar de rama
+
+`git branch` mostrar las ramas locales
+
+`git branch nombreRamaNueva` crea una rama nueva a partir de donde estoy parado
+
+`git show-branch --all` mostrar ramas detalladamente remotas y locales
+
+`gitk` muestra historia pero graficamente
