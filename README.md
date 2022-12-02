@@ -228,3 +228,53 @@ Lo que se cifra con la llave publica se decifra con la privada, las dos estan vi
 
 # Flujo de trabajo profecionales
 
+## Flujo de trabajo profesional: Haciendo merge de ramas de desarrollo a master
+
+Se recomienda siempre hacer `git pull` a la rama principal remota antes de iniciar a trabajar e igualmemte antes de ejecutar `git push` para subir al repositorio remoto.
+
+## Utilizando Pull Requests en GitHub
+
+Esto se configura en GitHub en la opcion **Pull Requests** y eligimos la rama base y la que vamos a comparrar, tambien podemos notificar a un colaborador los cambios que se hagan en esta herramienta
+
+Una vez aprovados los cambios ya se puede hacer un merge.
+
+Se recomienda eliminar la rama usada para la pprueba de **pull request**
+
+Se vuelve a la rama principal y se hace `git pull` al reporitorio para actualizar los cambios localmente. 
+
+## Creando un Fork, contribuyendo a un repositorio
+
+Se seleciona la opcion que aparece en la parte superior en GitHub, de esta manera clona ese repositorio en mi repositorio remoto. Si se quiere tener esto en mi co`mputadora se hace un `git clone`
+
+Se puede hacer un pull request desde el proyecto ramificado, de esta manera esperar si el propietario hace los cambios.
+
+Para estar actualizado con el repositorio oficial se crean en consola otro origen con nombre **upstream** y de esta manera hacer `git pull` al master oficial, luego el `git push`a nuestro repositorio remoto al origen `origin`.
+Tambien se puede haccer directamente desde GitHuB
+
+## Haciendo deployment a un servidor
+
+Deploy es el proceso que permite enviar al servidor uno o varios archivos. Este servidor puede ser de prueba, desarrollo o produccion.
+
+Pasos para hacer deployment en un servidor web:
+
+- Entrar a la capeta de los archivos del servidor.
+- Copiar link en clone, elegir entre HTTPS o SSH del repositorio a contribuir.
+    - En la carpeta deseada se clona el repositorio:
+
+    ```
+    git clone url
+    Deploy:
+    ```
+- Realizar cambios y commit en GitHub.
+- Traer al Repositorio local las actualizacion para el servidor en la capeta de los archivos del servidor.
+    ```git pull ramaRemota main```
+
+Siempre se debe proteger el archivo .git. Dependiendo del software para el servidor web, existen diferentes maneras. La conexion entre GitHub y el servidor se puede realizar mediante: Travis (pago) o Jenkis (Open source).
+
+## Ignorar archivos en el repositorio con .gitignore
+
+Se crea unj nuevo archivo **.gitignore** en la cual colocas las extenciones de archivos y carpetas que quieres ignorar para subir al repositorio remoto.
+
+## README.md
+
+Practica muy importante para mostrar o describir lo que se tiene en nuestro repositorio GitHub, el contenido de este archivo se visualiza automaticamente, por lo cual podemos tener lo que sea aqui y poder explicar nuestro repositorio.
