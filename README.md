@@ -278,3 +278,72 @@ Se crea unj nuevo archivo **.gitignore** en la cual colocas las extenciones de a
 ## README.md
 
 Practica muy importante para mostrar o describir lo que se tiene en nuestro repositorio GitHub, el contenido de este archivo se visualiza automaticamente, por lo cual podemos tener lo que sea aqui y poder explicar nuestro repositorio.
+
+## GitHub Pages
+
+remota antes de iniciar a trabajar e igualmemte antes de ejecutar `git push` para subir al repositorio remoto.
+
+## Utilizando Pull Requests en GitHub
+
+Esto se configura en GitHub en la opcion **Pull Requests** y eligimos la rama base y la que vamos a comparrar, tambien podemos notificar a un colaborador los cambios que se hagan en esta herramienta
+
+Una vez aprovados los cambios ya se puede hacer un merge.
+
+Se recomienda eliminar la rama usada para la pprueba de **pull request**
+
+Se vuelve a la rama principal y se hace `git pull` al reporitorio para actualizar los cambios localmente. 
+
+## Creando un Fork, contribuyendo a un repositorio
+
+Se seleciona la opcion que aparece en la parte superior en GitHub, de esta manera clona ese repositorio en mi repositorio remoto. Si se quiere tener esto en mi co`mputadora se hace un `git clone`
+
+Se puede hacer un pull request desde el proyecto ramificado, de esta manera esperar si el propietario hace los cambios.
+
+Para estar actualizado con el repositorio oficial se crean en consola otro origen con nombre **upstream** y de esta manera hacer `git pull` al master oficial, luego el `git push`a nuestro repositorio remoto al origen `origin`.
+Tambien se puede haccer directamente desde GitHuB
+
+## Haciendo deployment a un servidor
+
+Deploy es el proceso que permite enviar al servidor uno o varios archivos. Este servidor puede ser de prueba, desarrollo o produccion.
+
+Pasos para hacer deployment en un servidor web:
+
+- Entrar a la capeta de los archivos del servidor.
+- Copiar link en clone, elegir entre HTTPS o SSH del repositorio a contribuir.
+    - En la carpeta deseada se clona el repositorio:
+
+    ```
+    git clone url
+    Deploy:
+    ```
+- Realizar cambios y commit en GitHub.
+- Traer al Repositorio local las actualizacion para el servidor en la capeta de los archivos del servidor.
+    ```git pull ramaRemota main```
+
+Siempre se debe proteger el archivo .git. Dependiendo del software para el servidor web, existen diferentes maneras. La conexi.on entre GitHub y el servidor se puede realizar mediante: Travis (pago) o Jenkis (Open source).
+
+## Ignorar archivos en el repositorio con .gitignore
+
+Se crea unj nuevo archivo **.gitignore** en la cual colocas las extenciones de archivos y carpetas que quieres ignorar para subir al repositorio remoto.
+
+## README.md
+
+Practica muy importante para mostrar o describir lo que se tiene en nuestro repositorio GitHub, el contenido de este archivo se visualiza automaticamente, por lo cual podemos tener lo que sea aqui y poder explicar nuestro repositorio.
+
+## GitHub Pages
+
+Crear un repositorio con el mismo nombre de mi usuario.
+
+se crea un archivo index.html, el cual tendra en contenido del inicio de nuestra pagina.
+
+en ajustes de nuestro repositorio configurarr el apartado de **Pages**, dode se elige de que rama cargar el index.html
+
+entramos nuevamente a ajustes y en este mismo lugar podemos ver el enlace de nuestra pagina.
+
+Si se quiere que la paginma cargue de la raiz modificar el nombre del proyecto a **<nombre_usuario>.github.io**, de esta manera todo quedara listo.
+
+# Multiples entornos de trabajo en Git
+
+## Git Rebase: reorganizando el trabajo realizado
+
+Permite agarrar una rama entera y pegarla a nuestra rama maestra, la rama que se pega se elimina.
