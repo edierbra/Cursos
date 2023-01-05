@@ -334,11 +334,11 @@ Practica muy importante para mostrar o describir lo que se tiene en nuestro repo
 
 Crear un repositorio con el mismo nombre de mi usuario.
 
-se crea un archivo index.html, el cual tendra en contenido del inicio de nuestra pagina.
+Se crea un archivo index.html, el cual tendra en contenido del inicio de nuestra pagina.
 
-en ajustes de nuestro repositorio configurarr el apartado de **Pages**, dode se elige de que rama cargar el index.html
+En ajustes de nuestro repositorio configurarr el apartado de **Pages**, dode se elige de que rama cargar el index.html
 
-entramos nuevamente a ajustes y en este mismo lugar podemos ver el enlace de nuestra pagina.
+Entramos nuevamente a ajustes y en este mismo lugar podemos ver el enlace de nuestra pagina.
 
 Si se quiere que la paginma cargue de la raiz modificar el nombre del proyecto a **<nombre_usuario>.github.io**, de esta manera todo quedara listo.
 
@@ -346,4 +346,18 @@ Si se quiere que la paginma cargue de la raiz modificar el nombre del proyecto a
 
 ## Git Rebase: reorganizando el trabajo realizado
 
-Permite agarrar una rama entera y pegarla a nuestra rama maestra, la rama que se pega se elimina.
+Permite agarrar una rama entera y pegarla a nuestra rama maestra o a cualquiera que deseemos
+
+La rama maestra debe estar mas adelantada, primero hacemos desde nuestra rama secundaria
+
+`git rebase <ramaMaestra>`
+
+Luego desde la rama maestra
+
+`git rebase <ramaSecundaria>`
+
+Y de esta manera se realizan los cambios en nuestra rama maestra.
+
+Podemos hacer **git pull** y **git push** para tener lo mismo remotamente.
+
+##Git Stash: Guardar cambios en memoria y recuperarlos después
