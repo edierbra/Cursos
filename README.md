@@ -361,3 +361,5 @@ Y de esta manera se realizan los cambios en nuestra rama maestra.
 Podemos hacer **git pull** y **git push** para tener lo mismo remotamente.
 
 ##Git Stash: Guardar cambios en memoria y recuperarlos después
+
+Readme mejorado
